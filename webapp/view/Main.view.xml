@@ -1,0 +1,60 @@
+<mvc:View
+    controllerName="no.mil.ztravel.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        titleAlignment="Center"
+    >
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>title}"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label text="Timestamp" />
+                    <Text text="{marcoPolo>/backend-timestamp}" />
+                    <Label
+                        text="Reiseskjema"
+                        required="true"
+                    />
+                    <Input
+                        showValueHelp="true"
+                        width="250px"
+                    />
+                    <Label text="Reisetype" />
+                    <Select
+                        width="250px"
+                        editable="false"
+                    />
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button text="Lagre" />
+                <Button
+                    type="Emphasized"
+                    text="Opprett reise"
+                />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
