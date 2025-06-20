@@ -7,12 +7,14 @@
     <Page
         id="page"
         titleAlignment="Center"
+        title="{i18n>title}"
+        floatingFooter="true"
     >
         <VBox class="sapUiSmallMargin">
             <f:SimpleForm
                 editable="true"
                 layout="ResponsiveGridLayout"
-                title="{i18n>title}"
+                title="Generelt"
                 labelSpanXL="3"
                 labelSpanL="3"
                 labelSpanM="3"
@@ -29,7 +31,11 @@
             >
                 <f:content>
                     <Label text="SAD Timestamp" />
-                    <Text text="{marcoPolo>/backend-timestamp}" />
+                    <HBox >
+                    <Text id="textUpdate" text="{marcoPolo>/backend-timestamp}" class="sapUiMediumMarginBottom" busyIndicatorDelay="0"   />
+                    <Button id="butRefresh" press="onPressRefresh" type="Transparent" icon="sap-icon://refresh" class="sapUiTinyMarginBegin"></Button>
+                    </HBox>
+                    
                     <Label
                         text="Reiseskjema"
                         required="true"
@@ -37,6 +43,7 @@
                     <Input
                         showValueHelp="true"
                         width="250px"
+                        valueHelpRequest="onValueHelpRequest"
                     />
                     <Label text="Reisetype" />
                     <Select
@@ -45,14 +52,15 @@
                     />
                 </f:content>
             </f:SimpleForm>
-        </VBox>
+        </VBox>        
         <footer>
             <Toolbar>
                 <ToolbarSpacer />
-                <Button text="Lagre" />
+                <Button text="Lagre"  icon="sap-icon://save"/>
                 <Button
                     type="Emphasized"
                     text="Opprett reise"
+                    icon="sap-icon://create-form"
                 />
             </Toolbar>
         </footer>
