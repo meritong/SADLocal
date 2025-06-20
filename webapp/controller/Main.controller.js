@@ -6,16 +6,15 @@ sap.ui.define([
     return Controller.extend("no.mil.ztravel.controller.Main", {
         onInit() {
 
-
-            var appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
-            var appPath = appId.replaceAll(".", "/");
-            var appModulePath = jQuery.sap.getModulePath(appPath);
-
             // For managed approuter (e.g. deployed in BTP), use:
-            var sUrl = appModulePath + "/destination/SAD";
+            let appId = this.getOwnerComponent().getManifestEntry("/sap.app/id"),
+                appPath = appId.replaceAll(".", "/"),
+                appModulePath = jQuery.sap.getModulePath(appPath);
+
+            // Local use
+            let sUrl = "SAD-SSL/v1/marcopolo";
 
             var oModel = new sap.ui.model.json.JSONModel();
-            //var sUrl = "/"; // this goes through your destination
             debugger;
             jQuery.ajax({
                 url: sUrl,

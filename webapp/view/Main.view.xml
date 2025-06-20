@@ -28,7 +28,7 @@
                 singleContainerFullSize="false"
             >
                 <f:content>
-                    <Label text="Timestamp" />
+                    <Label text="SAD Timestamp" />
                     <Text text="{marcoPolo>/backend-timestamp}" />
                     <Label
                         text="Reiseskjema"

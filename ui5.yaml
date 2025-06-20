@@ -28,6 +28,6 @@ server:
           theme: sap_horizon
     - name: ui5-middleware-simpleproxy
       afterMiddleware: compression
-      mountPath: /destination/SAD
+      mountPath: /SAD-SSL
       configuration:
-        baseUri: "http://167.172.102.198:8080/v1/marcopolo"
+        baseUri: "https://test.humboldt.no/"
