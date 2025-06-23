@@ -1,4 +1,5 @@
 <mvc:View
+    xmlns:core="sap.ui.core"
     controllerName="no.mil.ztravel.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.ui.layout.form"
@@ -31,32 +32,66 @@
             >
                 <f:content>
                     <Label text="SAD Timestamp" />
-                    <HBox >
-                    <Text id="textUpdate" text="{marcoPolo>/backend-timestamp}" class="sapUiMediumMarginBottom" busyIndicatorDelay="0"   />
-                    <Button id="butRefresh" press="onPressRefresh" type="Transparent" icon="sap-icon://refresh" class="sapUiTinyMarginBegin"></Button>
+                    <HBox>
+                        <Text
+                            id="textUpdate"
+                            text="{marcoPolo>/backend_timestamp}"
+                            class="sapUiMediumMarginBottom"
+                            busyIndicatorDelay="0"
+                        />
+                        <Button
+                            id="butRefresh"
+                            press="onPressRefresh"
+                            type="Transparent"
+                            icon="sap-icon://refresh"
+                            class="sapUiTinyMarginBegin"
+                        />
                     </HBox>
-                    
+
                     <Label
                         text="Reiseskjema"
                         required="true"
                     />
-                    <Input
-                        showValueHelp="true"
-                        width="250px"
-                        valueHelpRequest="onValueHelpRequest"
-                    />
-                    <Label text="Reisetype" />
                     <Select
                         width="250px"
-                        editable="false"
-                    />
+                        items="{marcoPolo>/reiseSkjema}"
+                        forceSelection="false"
+                        selectedKey="{initModel>/skjema}"
+                        change=".onChangeSkjema"
+                    >
+                        <items>
+                            <core:ListItem
+                                key="{marcoPolo>key}"
+                                text="{marcoPolo>text}"
+                            />
+                        </items>
+                    </Select>
+                    <Label text="Reisetype" />
+                    <Select
+                      id="selReiseType"
+                        width="250px"
+                        editable="{= ${initModel>/skjema} ? true : false }"
+                        items="{marcoPolo>/reiseTyper}"
+                        forceSelection="false"
+                        
+                    >
+                        <items>
+                            <core:ListItem
+                                key="{marcoPolo>key}"
+                                text="{marcoPolo>text}"
+                            />
+                        </items>
+                    </Select>
                 </f:content>
             </f:SimpleForm>
-        </VBox>        
+        </VBox>
         <footer>
             <Toolbar>
                 <ToolbarSpacer />
-                <Button text="Lagre"  icon="sap-icon://save"/>
+                <Button
+                    text="Lagre"
+                    icon="sap-icon://save"
+                />
                 <Button
                     type="Emphasized"
                     text="Opprett reise"

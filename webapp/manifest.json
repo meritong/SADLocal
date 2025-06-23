@@ -27,7 +27,13 @@
           }
         }
       }
-    }
+    },
+    "dataSources": {
+			"initModel": {
+				"uri": "model/initModel.json",
+				"type": "JSON"
+			}
+		}
   },
   "sap.ui": {
     "technology": "UI5",
@@ -64,7 +70,11 @@
         "settings": {
           "bundleName": "no.mil.ztravel.i18n.i18n"
         }
-      }
+      },
+      "initModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "initModel"
+			}
     },
     "resources": {
       "css": [
